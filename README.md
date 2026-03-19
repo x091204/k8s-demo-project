@@ -11,7 +11,7 @@ It contains hands-on examples, experiments, and mini-projects covering core Kube
 * Pod communication
 * Networking & debugging
 
----
+
 
 ## 📌 Purpose
 
@@ -22,7 +22,6 @@ The goal of this repository is to:
 * Experiment with real-world DevOps scenarios
 * Track progress over time
 
----
 
 ## 📂 Structure
 
@@ -31,9 +30,7 @@ The repository will grow over time and include:
 * Sample deployments (MongoDB, apps, etc.)
 * Configuration files (YAML manifests)
 * Multi-service setups
-* Future integrations with CI/CD and cloud
 
----
 
 ## ⚙️ Tools Used
 
@@ -41,13 +38,11 @@ The repository will grow over time and include:
 * Docker
 * kubectl
 
----
 
 ## 🧠 Note
 
 This is a **learning-focused repository**, so it may contain incremental changes, experiments, and evolving configurations.
 
----
 
 ## 📈 Future Scope
 
