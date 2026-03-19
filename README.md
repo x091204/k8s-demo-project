@@ -29,7 +29,7 @@ The repository will grow over time and include:
 
 * Sample deployments (MongoDB, apps, etc.)
 * Configuration files (YAML manifests)
-* Multi-service setups
+* Multi-service -setups
 
 
 ## ⚙️ Tools Used
@@ -51,7 +51,6 @@ This is a **learning-focused repository**, so it may contain incremental changes
 * Deploy custom applications
 * Explore Helm and Ingress
 
----
 
 ## 👨‍💻 Author
 
