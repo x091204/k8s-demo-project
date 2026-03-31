@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job
+  namespace: for-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      parallelism: 1
+      completions: 1
+      activeDeadlineSeconds: 100
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            app: print-date
+        spec:
+          containers:
+            - name: echo
+              image: busybox
+              command: ["date"]
+              resources:
+                limits:
+                  memory: "50Mi"
+                requests:
+                  memory: "50Mi"
+                  cpu: "200m"
+              securityContext:
+                allowPrivilegeEscalation: false
+                privileged: false
+                runAsUser: 1001
+                runAsGroup: 1001
+                runAsNonRoot: True
+          restartPolicy: Never
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+          

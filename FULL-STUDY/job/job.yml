@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: first-job
+  namespace: for-job
+spec:
+  parallelism: 2 # run two job at once
+  completions: 2 # completion required 2
+  activeDeadlineSeconds: 100 # the maximum time that a job can run before it state as failed
+  backoffLimit: 1 # number of retry
+  template:
+    spec:
+      containers:
+        - name: echo
+          image: busybox
+          command: ["date"]
+          resources:
+            limits:
+              memory: "50Mi"
+            requests:
+              memory: "50Mi"
+              cpu: "250m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            runAsUser: 1001
+            runAsGroup: 1001
+            runAsNonRoot: true
+      restartPolicy: Never
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault ##Use Docker/container runtime’s default safe syscall filter

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-ip
+  namespace: for-svc
+  labels:
+    svc: service-label
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-svc-test ## should match with the pods label
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80 

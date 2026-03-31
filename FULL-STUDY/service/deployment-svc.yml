@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: for-svc
+  labels:
+    app: nginx-svc-test
+  annotations:
+    own: deployment-annotation
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-svc-test
+  template:
+    metadata:
+      labels:
+        app: nginx-svc-test
+      annotations:
+        own: pods-annotation
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.26.0
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        
+
