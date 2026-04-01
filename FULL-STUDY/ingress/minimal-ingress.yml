@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-mini
+  namespace: for-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: "test-ingress.com"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-clusterip
+                port:
+                  number: 80

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: secret-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.26.0
+      env:
+        - name: ENV_VAR_FROM_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: secret-test
+              key: USERNAME
+      command: ["printenv"]
