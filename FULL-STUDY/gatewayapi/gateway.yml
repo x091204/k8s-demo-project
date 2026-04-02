@@ -1,0 +1,13 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: gateway
+  namespace: for-gatewayapi
+spec:
+  gatewayClassName: gatewayclass
+  listeners:
+    - name: proxy
+      port: 80
+      protocol: HTTP
+      hostname: test.com
+##Gateway = where traffic enters the cluster

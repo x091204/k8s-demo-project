@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-manual
+  namespace: for-pvc
+spec:
+  containers: 
+    - name: nginx
+      image: nginx:1.26.0
+      volumeMounts:
+        - name: data
+          mountPath: /some/path
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: static-pvc

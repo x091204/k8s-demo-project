@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+  namespace: for-pvc
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true" ##f a PVC does NOT specify a storageClassName → use this StorageClass automatically
+provisioner: rancher.io/local-path ##Which plugin actually creates the storage
+reclaimPolicy: Delete ##PV + data removed automatically
+volumeBindingMode: WaitForFirstConsumer 

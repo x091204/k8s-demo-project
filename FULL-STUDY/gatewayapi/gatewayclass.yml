@@ -1,0 +1,12 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GatewayClass
+metadata:
+  name: gatewayclass
+  namespace: for-gatewayapi
+spec:
+  controllerName: konghq.com/kic-gateway-controller
+
+
+
+
+### GatewayClass = which controller runs the gateway
